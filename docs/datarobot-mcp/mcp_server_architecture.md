@@ -62,6 +62,7 @@ Run `task workload-deployment-flag-check` (invoked automatically by `task instal
 |---|---|---|
 | `DATAROBOT_API_TOKEN` | DataRobot API token | None |
 | `DATAROBOT_ENDPOINT` | DataRobot instance URL | `https://app.datarobot.com` |
+| `OKTA_ISSUER` | Issuer URL of your Okta app; required for production deploys (`task deploy` refuses without it) | None |
 
 ### MCP server settings
 
