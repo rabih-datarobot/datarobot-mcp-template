@@ -58,7 +58,7 @@ async def tool_name(
 
 - NEVER hardcode API keys or secrets in tool code. Use environment variables or runtime parameters.
 - Store credentials in `.env` file (never commit to git)
-- Access config via `app/core/user_config.py`
+- Access config via `app/core/user_config.py` which extends `DataRobotAppFrameworkBaseSettings` for automatic environment variable and `.env` file support
 - Use DataRobot credentials management for production deployments
 
 ## Installing MCP Server packages
