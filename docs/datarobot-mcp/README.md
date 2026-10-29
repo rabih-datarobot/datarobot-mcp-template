@@ -34,6 +34,12 @@ DATAROBOT_API_TOKEN=your_api_token
 DATAROBOT_ENDPOINT=https://app.datarobot.com
 ```
 
+For production deploys, also set:
+
+```bash
+OKTA_ISSUER=https://your-org.okta.com/oauth2/default
+```
+
 All other variables are optional. See the [configuration reference](mcp_server_architecture.md#configuration) for the full list.
 
 ### 2. Start the server locally
