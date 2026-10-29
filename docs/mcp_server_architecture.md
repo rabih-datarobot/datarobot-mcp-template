@@ -136,20 +136,21 @@ This structure allows you to:
 Add custom configuration in `dr_mcp/app/core/user_config.py`:
 
 ```python
-from pydantic import Field
-from pydantic_settings import BaseSettings
+from datarobot.core.config import DataRobotAppFrameworkBaseSettings
 
-class CustomAppConfig(BaseSettings):
-    app_name: str = Field(
-        default="my-custom-mcp-server",
-        description="Name of your MCP server"
-    )
+class UserAppConfig(DataRobotAppFrameworkBaseSettings):
+    """User-specific application configuration.
+    
+    Extends DataRobotAppFrameworkBaseSettings which provides automatic support for:
+    - Environment variables (including MLOPS_RUNTIME_PARAM_* extraction)
+    - .env file
+    - pulumi_config.json (lowest priority)
+    """
+    
+    user_name: str = "default-user"
     
     # Add your custom configuration fields here
-    custom_api_endpoint: str = Field(
-        default="https://api.example.com",
-        description="Your custom API endpoint"
-    )
+    custom_api_endpoint: str = "https://api.example.com"
 ```
 
-Configuration values are automatically loaded from environment variables or the `.env` file.
+Configuration values are automatically loaded from environment variables, the `.env` file, or `pulumi_config.json`.
